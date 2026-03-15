@@ -1,6 +1,6 @@
 #  Portfolio
 
-portfolio website for **Navis Joshva Donel J**, an Artificial Intelligence student and explorer.
+Portfolio website for **Navis Joshva Donel J**, an Artificial Intelligence student and explorer.
 
 ## ✨ Features
 
