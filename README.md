@@ -1,6 +1,6 @@
-# Premium AI Student Portfolio
+#  Portfolio
 
-A modern, highly animated, and futuristic personal portfolio website for **Navis Joshva Donel J**, an Artificial Intelligence student and explorer.
+portfolio website for **Navis Joshva Donel J**, an Artificial Intelligence student and explorer.
 
 ## ✨ Features
 
