@@ -6,9 +6,7 @@ portfolio website for **Navis Joshva Donel J**, an Artificial Intelligence stude
 
 - **Futuristic UI/UX**: Dark theme with glassmorphism and interactive elements.
 - **Deeply Animated**: Powered by Framer Motion for smooth scroll reveals and transitions.
-- **AI Visuals**: Interactive neural-network style particle background using Three.js.
 - **Responsive**: Fully optimized for mobile, tablet, and desktop.
-- **SEO Optimized**: Meta tags and structured data for better search visibility.
 - **High Performance**: Built with Vite and React for lightning-fast loading.
 
 ## 🚀 Tech Stack
