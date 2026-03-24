@@ -57,7 +57,7 @@ const Education = () => {
       degree: "Bachelor of Technology - BTech, Artificial Intelligence",
       period: "Sep 2024 – Present",
       grade: "8.4",
-      activities: "football & athletics",
+      activities: "",
       skills: "C (Programming Language) and C++"
     },
     {

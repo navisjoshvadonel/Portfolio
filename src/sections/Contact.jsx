@@ -84,31 +84,39 @@ const Contact = () => {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -mr-32 -mt-32 transition-all duration-1000 group-hover:scale-125" />
             
-            <form className="space-y-10 relative z-10">
+            <form 
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              className="space-y-10 relative z-10"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <div className="grid md:grid-cols-2 gap-10">
                 <div className="space-y-3">
                   <label className="text-xs font-black text-primary/60 ml-4 tracking-widest uppercase">Name</label>
-                  <input 
-                    type="text" 
+                    name="name"
                     className="w-full bg-white/[0.03] border border-white/10 rounded-[1.5rem] px-8 py-5 text-white focus:outline-none focus:border-primary focus:bg-white/[0.05] transition-all shadow-inner font-medium placeholder:text-white/20"
                     placeholder="Enter your name"
+                    required
                   />
                 </div>
                 <div className="space-y-3">
                   <label className="text-xs font-black text-primary/60 ml-4 tracking-widest uppercase">Your Mail</label>
-                  <input 
-                    type="email" 
+                    name="email"
                     className="w-full bg-white/[0.03] border border-white/10 rounded-[1.5rem] px-8 py-5 text-white focus:outline-none focus:border-primary focus:bg-white/[0.05] transition-all shadow-inner font-medium placeholder:text-white/20"
                     placeholder="Your mail"
+                    required
                   />
                 </div>
               </div>
               <div className="space-y-3">
                 <label className="text-xs font-black text-primary/60 ml-4 tracking-widest uppercase">Your Ideas</label>
                 <textarea 
+                  name="message"
                   rows="4"
                   className="w-full bg-white/[0.03] border border-white/10 rounded-[2rem] px-8 py-6 text-white focus:outline-none focus:border-primary focus:bg-white/[0.05] transition-all resize-none shadow-inner font-medium placeholder:text-white/20"
                   placeholder="Your ideas"
+                  required
                 />
               </div>
               <button 
