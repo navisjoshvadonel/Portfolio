@@ -94,6 +94,7 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-10">
                 <div className="space-y-3">
                   <label className="text-xs font-black text-primary/60 ml-4 tracking-widest uppercase">Name</label>
+                  <input 
                     name="name"
                     className="w-full bg-white/[0.03] border border-white/10 rounded-[1.5rem] px-8 py-5 text-white focus:outline-none focus:border-primary focus:bg-white/[0.05] transition-all shadow-inner font-medium placeholder:text-white/20"
                     placeholder="Enter your name"
@@ -102,6 +103,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-3">
                   <label className="text-xs font-black text-primary/60 ml-4 tracking-widest uppercase">Your Mail</label>
+                  <input 
                     name="email"
                     className="w-full bg-white/[0.03] border border-white/10 rounded-[1.5rem] px-8 py-5 text-white focus:outline-none focus:border-primary focus:bg-white/[0.05] transition-all shadow-inner font-medium placeholder:text-white/20"
                     placeholder="Your mail"

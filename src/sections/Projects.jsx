@@ -52,7 +52,7 @@ const Projects = () => {
     {
       title: "Tech Hangman",
       description: "A futuristic educational experience designed to master programming basics. Combines engaging problem-solving gameplay with a technical syllabus for rapid learning.",
-      link: "https://github.com/navisjoshvadonel/tech_hangman"
+      link: "https://github.com/navisjoshvadonel/tech_hangman."
     }
   ];
 
