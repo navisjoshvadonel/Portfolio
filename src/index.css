@@ -22,20 +22,43 @@
     transform: translateY(0);
 }
 
-.masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-auto-rows: 10px;
+/* Floating Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
 }
-.masonry-item {
-    grid-row-end: span 30;
+
+@keyframes float-slower {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg);
+  }
 }
-.masonry-item.tall {
-    grid-row-end: span 45;
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
 }
-.masonry-item.short {
-    grid-row-end: span 25;
+
+.animate-float-slower {
+  animation: float-slower 7s ease-in-out infinite;
 }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out forwards;
+}
+
+/* Gallery Hover Reveals */
 .hover-reveal {
     transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -44,7 +67,7 @@
     transform: translateY(0);
 }
 .gallery-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
@@ -55,3 +78,4 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #E5E7EB;
 }
+

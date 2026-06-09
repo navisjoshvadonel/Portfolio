@@ -9,6 +9,7 @@ import Experience from './sections/Experience';
 import Certifications from './sections/Certifications';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import FloatingSocials from './components/FloatingSocials';
 
 function App() {
   useEffect(() => {
@@ -68,9 +69,11 @@ function App() {
         <Contact />
       </main>
       
+      <FloatingSocials />
       <Footer />
     </div>
   );
 }
 
 export default App;
+
