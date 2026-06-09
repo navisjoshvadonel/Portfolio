@@ -1,56 +1,61 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, Award, Sparkles } from 'lucide-react';
+import React, { useEffect } from 'react';
 
 const EducationCard = ({ school, degree, period, grade, activities, skills, index }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
-    className="glass-morphism-heavy p-8 rounded-[2rem] relative overflow-hidden group border border-white/5 hover-shine"
+  <div 
+    className="group p-8 border border-border-subtle bg-pure-white rounded-lg hover:border-primary transition-all duration-300 reveal-on-scroll"
+    style={{ transitionDelay: `${index * 100}ms` }}
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-    
-    <div className="relative z-10 space-y-6">
-      <div className="flex items-center gap-4">
-        <div className="p-4 bg-white/5 rounded-2xl text-primary-light border border-white/10 shadow-lg group-hover:scale-110 transition-transform">
-          <GraduationCap size={28} />
+    <div className="flex items-center gap-4 mb-6 border-b border-border-subtle pb-6">
+        <span className="material-symbols-outlined text-primary text-4xl">school</span>
+        <div>
+            <h3 className="font-headline-md text-headline-md text-primary">{school}</h3>
+            <p className="font-body-md text-on-surface-variant mt-1">{degree}</p>
+        </div>
+    </div>
+
+    <div className="flex gap-8 mb-6">
+        <div>
+            <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Period</div>
+            <div className="font-body-md text-primary">{period}</div>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-white tracking-tight">{school}</h3>
-          <p className="text-[#818cf8] font-medium text-sm">{degree}</p>
+            <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Grade</div>
+            <div className="font-body-md text-primary">{grade}</div>
         </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted/80 text-[10px] font-bold uppercase tracking-wider">
-          <Calendar size={12} className="opacity-60" />
-          <span>{period}</span>
-        </div>
-        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ec4899]/10 border border-[#ec4899]/20 text-[#ec4899] text-[10px] font-black uppercase tracking-wider">
-          <Award size={12} className="opacity-60" />
-          <span>Grade: {grade}</span>
-        </div>
-      </div>
-
-      <div className="pt-2">
-        <p className="text-muted/80 leading-relaxed text-sm italic border-l border-white/10 pl-4 font-medium">
-          {activities}
-        </p>
-      </div>
-
-      {skills && (
-        <div className="pt-2 flex items-center gap-2 text-[10px] font-bold text-white/40 uppercase tracking-[0.2em]">
-            <Sparkles size={12} />
-            <span>{skills}</span>
-        </div>
-      )}
     </div>
-  </motion.div>
+
+    {activities && (
+        <div className="mb-4">
+            <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Activities</div>
+            <p className="font-body-md text-on-surface">{activities}</p>
+        </div>
+    )}
+
+    {skills && (
+        <div>
+            <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Skills</div>
+            <p className="font-body-md text-on-surface">{skills}</p>
+        </div>
+    )}
+  </div>
 );
 
 const Education = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const els = document.querySelectorAll('.reveal-on-scroll');
+    els.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
   const educationData = [
     {
       school: "Mepco Schlenk Engineering College",
@@ -71,30 +76,18 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 px-4 relative overflow-hidden">
-      <div className="ambient-glow glow-secondary w-[400px] h-[400px] -right-24 bottom-24 opacity-10" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary-light text-[10px] font-black tracking-[0.2em] mb-6 uppercase">
-            <Sparkles size={12} />
-            ACADEMIC FOUNDATION
-          </div>
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
-            Educational <span className="text-gradient">Journey</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {educationData.map((edu, index) => (
-            <EducationCard key={index} {...edu} index={index} />
-          ))}
+    <section id="education" className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+      <div className="flex justify-between items-end mb-16 border-b border-border-subtle pb-8">
+        <div>
+          <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Academic Foundation</span>
+          <h2 className="font-headline-lg text-headline-lg text-primary">Educational Journey</h2>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {educationData.map((edu, index) => (
+          <EducationCard key={index} {...edu} index={index} />
+        ))}
       </div>
     </section>
   );

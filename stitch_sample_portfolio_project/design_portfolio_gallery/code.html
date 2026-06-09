@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DESIGN_GALLERY | Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 10px;
+        }
+        .masonry-item {
+            grid-row-end: span 30;
+        }
+        .masonry-item.tall {
+            grid-row-end: span 45;
+        }
+        .masonry-item.short {
+            grid-row-end: span 25;
+        }
+        .hover-reveal {
+            transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .gallery-card:hover .hover-reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#b7c4ff",
+                      "surface": "#f8f9fb",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#858690",
+                      "surface-container-low": "#f3f4f6",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#251e13",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "primary-container": "#1d1f27",
+                      "on-primary-fixed": "#191b23",
+                      "primary-fixed": "#e1e2ed",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#e1e2e4",
+                      "background": "#f8f9fb",
+                      "secondary-fixed": "#dde1ff",
+                      "surface-container": "#edeef0",
+                      "on-tertiary-fixed": "#211b10",
+                      "on-secondary-fixed-variant": "#113aaf",
+                      "on-tertiary-fixed-variant": "#4e4538",
+                      "primary-fixed-dim": "#c5c6d1",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-on-surface": "#f0f1f3",
+                      "on-secondary-container": "#002074",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#c5c6d1",
+                      "outline": "#77767c",
+                      "on-primary-fixed-variant": "#45464f",
+                      "on-background": "#191c1e",
+                      "pure-white": "#FFFFFF",
+                      "outline-variant": "#c7c6cb",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#6b89fe",
+                      "surface-alt": "#F9FAFB",
+                      "surface-bright": "#f8f9fb",
+                      "on-surface-variant": "#46464b",
+                      "on-tertiary-container": "#908576",
+                      "surface-tint": "#5c5e67",
+                      "error": "#ba1a1a",
+                      "border-subtle": "#E5E7EB",
+                      "tertiary-fixed": "#efe0cf",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed": "#001453",
+                      "tertiary": "#0a0601",
+                      "tertiary-fixed-dim": "#d2c5b3",
+                      "primary": "#05070e",
+                      "secondary": "#3354c7",
+                      "surface-dim": "#d9dadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "headline-xl": ["Hanken Grotesk"],
+                      "headline-xl-mobile": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary/20">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-border-subtle dark:border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed" href="#">DESIGN_GALLERY</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Mobile</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Web</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">UI Components</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Design Systems</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors duration-200">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm transition-transform active:scale-95">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<header class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 block">Discovery</span>
+<h1 class="font-headline-xl text-headline-xl md:text-headline-xl leading-tight text-primary">Curated design excellence for modern creators.</h1>
+</div>
+<!-- Category Filter -->
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2 rounded-full font-label-sm text-label-sm bg-primary text-on-primary transition-colors">All</button>
+<button class="px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors">Mobile</button>
+<button class="px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors">Web</button>
+<button class="px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors">Brand</button>
+</div>
+</div>
+</header>
+<!-- Masonry Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="masonry-grid gap-gutter">
+<!-- Gallery Item 1 -->
+<div class="masonry-item tall group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="A sophisticated mobile app interface displayed on a sleek smartphone. The design features a minimalist aesthetic with high-contrast typography, deep black backgrounds, and vibrant cobalt blue accents. The layout uses generous whitespace to highlight premium financial data visualizations. Soft, cinematic studio lighting casts subtle shadows, emphasizing the device's premium glass and metal build in a gallery setting." src="https://lh3.googleusercontent.com/aida/AP1WRLtXkoQVhSXr2uRozei1pAoNbHDlgxNXEZF3EGM7Nf3SNiqqRq9C0KjWg9QZSuO3qhQhiIXZZ8L3lx-5WwU_OPiI7xxn3_xjboHiupbjuv07YrDMh70TxGRJkoVpT7sBiYXnpZ5HgjjJwBCDbGvommSth02SU-RBugO8Zfiec0YfdOnByaWzBQC_JU0eIVXcs9D0OlGrHi3XYEB6M7uSNeRF_eGMsYOTgpLJHKGeFYy63nyoJvWt9fPYH-Y"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">MOBILE • FINTECH</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Nexus Wallet UI</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Next-generation digital asset management for professional traders.</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="A minimalist brand identity system presented on high-quality stationery. The visual style is clean and architectural, utilizing a strict monochrome palette with sharp, geometric logo marks. Business cards and letterheads are arranged with precision on a light gray concrete surface, illuminated by harsh, natural sunlight creating dramatic diagonal shadows. The overall mood is one of corporate modernism and elite professionalism." src="https://lh3.googleusercontent.com/aida/AP1WRLur-j_VoadFj7nPEaBDhP9nX44Dv_ZBdxoMTaWT9Fw_0XjQdaOCkp4OiHQqYTQbXR7EP4ufFIGqCAIMMtHSDxZ8EK_BU_peACwHpAfdtL4qm5RAX9gb2JIErLlvCSHLZ7geLuqM-UxCBLGgzHYmTSboZRssikf0JvwDh00C8wsz-zXdvaiywzZeBh3P5LmpE5yn6Eds2axozySAlh3ldrKnymKhmzOhOFYpqP7IeAFyxdJwvhYSv0SwwEAf"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">BRAND • IDENTITY</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Monolith Studios</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Visual identity for an architectural visualization firm.</p>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="masonry-item short group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="A high-end web dashboard showcasing complex data analytics. The UI is designed with a dark mode aesthetic, featuring glowing emerald green and soft purple data lines against a charcoal gray background. The typography is precise and utilitarian, reflecting a sophisticated engineering tool. The perspective is a close-up angle, showing the depth of the interface layers and subtle glassmorphism effects on the sidebar." src="https://lh3.googleusercontent.com/aida/AP1WRLtpQCfQwz9n2LvRqFq3q1OggbTGTY47G1Y9GKoFC6CgeSTfQ_vLJMFz6u-4ngd6mjR4eip1SnHYYKl3qWM6dXQJyViybzJ9Y2UvdwDQeK3ZM2hcjQU1wud7yBF5cUV7yLYAVha5LBJ5UcPVWGBrh9TWU2XuZzyDV2qCtIvRf-nML6zjBBPx1ibzKKWn5bOvsmSxzeUQtzcIAPXaeKhXDO91gZiA_1evj-9S-T3rVq_q7phG71PlIoi6zUI"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">WEB • DASHBOARD</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Aether Analytics</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Real-time data processing for global infrastructure.</p>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="An abstract digital artwork depicting fluid, silk-like textures in deep navy and electric blue. The composition is organic and dynamic, suggesting motion and sophisticated elegance. Lighting is soft and diffused, highlighting the subtle gradients and fine details of the simulated fabric. This high-end visual piece represents a modern design system's atmospheric background, conveying a sense of premium fluidity and technological grace." src="https://lh3.googleusercontent.com/aida/AP1WRLtAqgQX7YVP-Jj94ypdFvTdtOW0d7G9PHrzzt1GmyHD7Cd_tyL4i_HwyaxCEuV3nQyAoZMR7g694x0_8cfx4QhoxG9ytLPdjNWPyq4dc2bRW2wXfBwmJQHUv6uUoREJqj9At8EIeh4OaJYnb04B1rY4D1gWAYJTHUj71sChJZZGW1CxYQN4PkHSQti-q_b0GbqTYaBpBlJdg9wLn-DBecPtKDLkrRkyAp_VJ0vWT6UpMeFKkDE_fo9f-jQ"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">SYSTEM • MOTION</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Fluid Dynamics</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Exploring organic movement in digital spaces.</p>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="masonry-item tall group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="A boutique fashion e-commerce website displayed on a high-resolution laptop. The design follows an editorial layout with large, high-fashion photography and minimalist serif typography. The color palette is composed of soft beige, crisp white, and sharp black, creating a museum-grade browsing experience. The environment is a brightly lit, minimalist designer studio with soft natural light pouring through large windows." src="https://lh3.googleusercontent.com/aida/AP1WRLv4Er86VDwpCScxaTvz5evyWmn8auK4jbBNuvLE0HNDcH_sqJmVzNpHuvBzcrlrSg-yuX_zkcHb22bejrTIweZq9Mx14su4UDBL8IKtng6PRFkmyIQm7LUtz_5rKKkWv5Bgy67LvQv05w19mxnWrbb0tSo44HbHynl9m8lAvZp2Fo0cwlBgXpoShKd8iM76XVNLy0Yap_vjyCuEAIK2dF62iMYVPq5OrFrvmQuVuoGaSGTqwtrcxgsasFwR"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">WEB • E-COMMERCE</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Orizon Boutique</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Editorial-driven shopping experience for high fashion.</p>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0" data-alt="A clean, functional design system documentation page. It features a organized grid of UI components like buttons, sliders, and toggles, all adhering to a strict minimalist aesthetic. The color scheme is professional and muted, using shades of cool gray and a signature primary blue. The layout is structured on a 12-column grid, showcasing technical precision and clarity in digital product design." src="https://lh3.googleusercontent.com/aida/AP1WRLvOAU14fFSyLOZuES-A8kpdRAJxRxWfJzKmRJpO6vdijgJsRFI_xZlHcUcWLrfvYtSqLn2mki8iFmie1cff6nkbMlRN6wVBTsKfKygTXC8VnjnYT580oofbu0Uth_zAvKQgRDR6agDGlpsSttv6MXGZ8MYw5Q20Ri1eGkugHySmYKmAb5xXysCOFyfIWo2Kl-o8PodGEXTQXz1g5XhrssKgdk1JnvHv9PBhHXTJj_qMirolO_yK2UTEtINC"/>
+<div class="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2">SYSTEM • UI KIT</span>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Core Componentry</h3>
+<p class="font-body-md text-on-primary-container line-clamp-2">Foundational elements for scalable digital ecosystems.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-24 bg-primary py-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-pure-white mb-4">Start your creative journey today.</h2>
+<p class="font-body-lg text-on-primary-container max-w-xl">Join over 10,000 designers showcasing their best work on the world's most curated gallery.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-pure-white text-primary px-8 py-4 rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-colors">Get Started</button>
+<button class="border border-pure-white text-pure-white px-8 py-4 rounded-lg font-label-sm text-label-sm hover:bg-pure-white/10 transition-colors">Learn More</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface-container-lowest border-t border-border-subtle dark:border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md text-primary">DESIGN_GALLERY</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Design Gallery. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">About</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Careers</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<a class="p-2 bg-surface-container-low rounded-full hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-body-md">language</span>
+</a>
+<a class="p-2 bg-surface-container-low rounded-full hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-body-md">share</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple filter interaction
+        const filterButtons = document.querySelectorAll('button[class*="rounded-full"]');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-low', 'text-on-surface');
+                });
+                btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+                btn.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Sticky nav shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

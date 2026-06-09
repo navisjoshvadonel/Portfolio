@@ -1,82 +1,85 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Sparkles, Layout } from 'lucide-react';
-
-const ProjectCard = ({ title, description, link, index }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
-    whileHover={{ y: -8 }}
-    className="group relative overflow-hidden rounded-3xl glass-morphism-heavy p-8 flex flex-col h-full transition-all duration-500 border border-white/5 hover-shine"
-  >
-    <div className="absolute top-0 right-0 p-8 text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none transform group-hover:scale-125 transition-transform duration-1000">
-        <Layout size={100} />
-    </div>
-    
-    <div className="relative z-10 flex flex-col flex-grow">
-        <h3 className="text-2xl font-black text-white tracking-tight mb-4 group-hover:text-primary transition-colors">{title}</h3>
-        
-        <p className="text-muted text-sm font-medium mb-8 flex-grow leading-relaxed">
-            {description}
-        </p>
-        
-        <div className="flex gap-4">
-            <a 
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all transform active:scale-95 text-xs tracking-widest"
-            >
-                <Github size={16} />
-                CODEBASE
-            </a>
-        </div>
-    </div>
-  </motion.div>
-);
+import React, { useEffect } from 'react';
 
 const Projects = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const els = document.querySelectorAll('.reveal-on-scroll');
+    els.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
       title: "AeroRoute",
       description: "AeroRoute is a high-performance system designed to analyze and optimize routes using intelligent algorithms. The project focuses on improving efficiency in route decision-making through complex algorithmic approaches.",
-      link: "https://github.com/navisjoshvadonel/Artificial-Intelligence"
+      link: "https://github.com/navisjoshvadonel/Artificial-Intelligence",
+      category: "AI • ALGORITHMS",
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop", // Placeholder representing routing/networks
+      tall: true
     },
     {
       title: "Smart Beneficiary Mapping",
       description: "An advanced platform designed to optimize identification and resource distribution using structured data analysis and mapping strategies. Built for massive transparency and efficiency.",
-      link: "https://github.com/navisjoshvadonel/Smart-beneficiary-mappping-system"
+      link: "https://github.com/navisjoshvadonel/Smart-beneficiary-mappping-system",
+      category: "DATA • PLATFORM",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Placeholder representing data mapping
+      tall: false
     },
     {
       title: "Tech Hangman",
       description: "A futuristic educational experience designed to master programming basics. Combines engaging problem-solving gameplay with a technical syllabus for rapid learning.",
-      link: "https://github.com/navisjoshvadonel/tech_hangman."
+      link: "https://github.com/navisjoshvadonel/tech_hangman.",
+      category: "EDUCATION • GAMING",
+      img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop", // Placeholder representing code/games
+      tall: false
     }
   ];
 
   return (
-    <section id="projects" className="py-24 px-4 relative overflow-hidden">
-        <div className="ambient-glow glow-accent w-[400px] h-[400px] -left-24 top-1/2 -translate-y-1/2 opacity-5" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} index={index} />
-          ))}
+    <section id="projects" className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+      <header className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="max-w-2xl reveal-on-scroll">
+          <span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 block">Selected Works</span>
+          <h2 className="font-headline-xl text-headline-xl md:text-headline-xl leading-tight text-primary">Featured Projects.</h2>
         </div>
+      </header>
+
+      <div className="masonry-grid gap-gutter">
+        {projects.map((project, idx) => (
+          <div 
+            key={idx} 
+            className={`masonry-item ${project.tall ? 'tall' : 'short'} group relative overflow-hidden bg-surface-container-low rounded-lg gallery-card reveal-on-scroll`}
+            style={{ transitionDelay: `${idx * 100}ms` }}
+          >
+            <img 
+              src={project.img} 
+              alt={project.title} 
+              className="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0"
+            />
+            <div className="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+              <span className="font-label-sm text-label-sm text-secondary-fixed mb-2">{project.category}</span>
+              <h3 className="font-headline-md text-headline-md text-pure-white mb-2">{project.title}</h3>
+              <p className="font-body-md text-on-primary-container line-clamp-3 mb-6">{project.description}</p>
+              
+              <a 
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-max items-center gap-2 px-5 py-2 rounded border border-white/20 text-white font-label-sm text-label-sm uppercase hover:bg-white hover:text-primary transition-colors"
+              >
+                View Codebase
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
