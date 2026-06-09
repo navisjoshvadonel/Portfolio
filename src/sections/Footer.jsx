@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-surface border-t border-border-subtle mt-20">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-4">
-          <span className="font-headline-md text-headline-md text-primary font-bold">NAVIS_JOSHVA</span>
+          <span className="font-headline-md text-headline-md text-primary font-bold">NAVIS JOSHVA</span>
           <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">© 2026 Navis Joshva Donel J. All rights reserved.</p>
         </div>
         
@@ -14,15 +14,6 @@ const Footer = () => {
           <a href="#projects" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline uppercase tracking-wider">Projects</a>
           <a href="#experience" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline uppercase tracking-wider">Experience</a>
           <a href="#contact" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline uppercase tracking-wider">Contact</a>
-        </div>
-        
-        <div className="flex gap-4">
-          <a href="https://github.com/navisjoshvadonel" target="_blank" rel="noopener noreferrer" className="p-2 bg-surface-container-low rounded-full hover:text-primary transition-colors hover:bg-surface-container-high">
-             <span className="font-label-sm text-label-sm tracking-wider">GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/navis-joshva-donel-j-18a38525b/" target="_blank" rel="noopener noreferrer" className="p-2 bg-surface-container-low rounded-full hover:text-primary transition-colors hover:bg-surface-container-high">
-            <span className="font-label-sm text-label-sm tracking-wider">LinkedIn</span>
-          </a>
         </div>
       </div>
     </footer>
