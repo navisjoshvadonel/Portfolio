@@ -22,14 +22,13 @@ const Certifications = () => {
     { src: "google_ai.png", title: "Google AI Professional Certificate", category: "Google Certification", isGoogle: true, isFavourite: true },
     { src: "google_ai_essentials.png", title: "Google AI Essentials Specialization", category: "Google Certification", isGoogle: true, isFavourite: true },
     { src: "kaashiv_infotech.png", title: "Kaashiv Infotech Practical Industrial Training (Artificial Intelligence)", category: "Technical Certification", isVertical: true, isFavourite: false },
-    { src: "sports achievement.jpeg", title: "State Level Sports Achievement", category: "Extra Curricular", isFavourite: true },
-    { src: "1759327043804.jpeg", title: "Technoinnovate 2025 Participation", category: "Technical Certification", isFavourite: false },
-    { src: "1766587337051.jpeg", title: "Innovation & Design Thinking", category: "Technical Certification", isFavourite: false },
-    { src: "1767008223118.jpeg", title: "AI Development Workshop", category: "Technical Certification", isFavourite: false },
-    { src: "1767008223538.jpeg", title: "Engineering Excellence Recognition", category: "Technical Certification", isFavourite: false },
-    { src: "1769794999966.jpeg", title: "Sustainable Solution Award", category: "Technical Certification", isFavourite: false },
-    { src: "1769795000187.jpeg", title: "Data Analytics Masterclass", category: "Technical Certification", isFavourite: false },
-    { src: "1772376465846.jpeg", title: "Future Tech Innovator", category: "Technical Certification", isFavourite: false },
+    { src: "sports achievement.jpeg", title: "Annual Sports Day Individual Championship Trophies", category: "Extra Curricular", isFavourite: true },
+    { src: "1759327043804.jpeg", title: "Project Presentation - Smart Beneficiary Mapping Platform (Technoinnovate 2025)", category: "Technical Certification", isFavourite: false },
+    { src: "1766587337051.jpeg", title: "Python Data Analyst Certification", category: "Technical Certification", isFavourite: false },
+    { src: "1767008223118.jpeg", title: "Power BI Data Analyst Certification", category: "Technical Certification", isFavourite: false },
+    { src: "1767008223538.jpeg", title: "Tableau Data Analyst Certification", category: "Technical Certification", isFavourite: false },
+    { src: "1769795000187.jpeg", title: "Web Development Industrial Visit - CodeBind Technologies", category: "Technical Certification", isVertical: true, isFavourite: false },
+    { src: "1772376465846.jpeg", title: "Project Presentation - SCIMIT '26 (Mega Project Contest)", category: "Technical Certification", isFavourite: false },
   ];
 
   return (
