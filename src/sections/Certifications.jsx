@@ -109,12 +109,12 @@ const Certifications = () => {
       {/* Lightbox Modal for viewing certificates full screen */}
       {selectedCert && (
         <div 
-          className="fixed inset-0 z-[100] bg-primary/95 backdrop-blur-sm flex flex-col justify-center items-center p-4 md:p-8 animate-fade-in"
+          className="fixed inset-0 z-[100] bg-[#05070e]/95 backdrop-blur-sm flex flex-col justify-center items-center p-4 md:p-8 animate-fade-in"
           onClick={() => setSelectedCert(null)}
         >
           {/* Close Button */}
           <button 
-            className="absolute top-6 right-6 text-pure-white/70 hover:text-pure-white transition-colors p-2 rounded-full hover:bg-pure-white/10 flex items-center justify-center"
+            className="absolute top-6 right-6 text-[#ffffff]/70 hover:text-[#ffffff] transition-colors p-2 rounded-full hover:bg-[#ffffff]/10 flex items-center justify-center"
             onClick={() => setSelectedCert(null)}
             aria-label="Close"
           >
@@ -129,7 +129,7 @@ const Certifications = () => {
             <img 
               src={`/certificates/${selectedCert.src}`} 
               alt={selectedCert.title} 
-              className="max-w-full max-h-[80vh] object-contain rounded shadow-2xl border border-pure-white/10"
+              className="max-w-full max-h-[80vh] object-contain rounded shadow-2xl border border-[#ffffff]/10"
               onError={(e) => { e.target.src = "https://via.placeholder.com/1000x800?text=Certificate"; }}
             />
           </div>
@@ -139,14 +139,14 @@ const Certifications = () => {
             className="text-center mt-6 max-w-xl px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="font-headline-md text-xl md:text-2xl text-pure-white mb-2">
+            <h3 className="font-headline-md text-xl md:text-2xl text-[#ffffff] mb-2">
               {selectedCert.title}
             </h3>
             <a 
               href={`/certificates/${selectedCert.src}`} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 mt-4 text-xs font-semibold text-pure-white/80 hover:text-pure-white underline underline-offset-4 decoration-pure-white/30"
+              className="inline-flex items-center gap-2 mt-4 text-xs font-semibold text-[#ffffff]/80 hover:text-[#ffffff] underline underline-offset-4 decoration-[#ffffff]/30"
             >
               <span className="material-symbols-outlined text-sm">open_in_new</span>
               Open original file

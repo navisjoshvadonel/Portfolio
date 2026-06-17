@@ -64,16 +64,16 @@ const Projects = () => {
               alt={project.title} 
               className="w-full h-full object-cover transition-transform duration-700 ease-out grayscale hover:grayscale-0"
             />
-            <div className="hover-reveal absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
+            <div className="hover-reveal absolute inset-0 bg-gradient-to-t from-[#05070e]/95 via-[#05070e]/75 to-transparent opacity-0 flex flex-col justify-end p-8 translate-y-4">
               <span className="font-label-sm text-label-sm text-secondary-fixed mb-2">{project.category}</span>
-              <h3 className="font-headline-md text-headline-md text-pure-white mb-2">{project.title}</h3>
-              <p className="font-body-md text-on-primary-container line-clamp-3 mb-6">{project.description}</p>
+              <h3 className="font-headline-md text-headline-md text-[#ffffff] mb-2">{project.title}</h3>
+              <p className="font-body-md text-neutral-300 line-clamp-3 mb-6">{project.description}</p>
               
               <a 
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-max items-center gap-2 px-5 py-2 rounded border border-white/20 text-white font-label-sm text-label-sm uppercase hover:bg-white hover:text-primary transition-colors"
+                className="inline-flex w-max items-center gap-2 px-5 py-2 rounded border border-[#ffffff]/20 text-[#ffffff] font-label-sm text-label-sm uppercase hover:bg-[#ffffff] hover:text-[#05070e] transition-colors"
               >
                 View Codebase
               </a>
