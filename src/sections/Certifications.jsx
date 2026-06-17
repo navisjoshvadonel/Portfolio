@@ -21,6 +21,11 @@ const Certifications = () => {
   const certificates = [
     { src: "google_ai.png", title: "Google AI Professional Certificate", category: "Google Certification", isGoogle: true, isFavourite: true },
     { src: "google_ai_essentials.png", title: "Google AI Essentials Specialization", category: "Google Certification", isGoogle: true, isFavourite: true },
+    { src: "google_ai_fundamentals.png", title: "Google - AI Fundamentals", category: "Google Certification", isGoogle: true, isFavourite: false },
+    { src: "google_discover_art_of_prompting.png", title: "Google - Discover the Art of Prompting", category: "Google Certification", isGoogle: true, isFavourite: false },
+    { src: "google_ai_for_data_analysis.png", title: "Google - AI for Data Analysis", category: "Google Certification", isGoogle: true, isFavourite: false },
+    { src: "google_ai_for_brainstorming_and_planning.png", title: "Google - AI for Brainstorming and Planning", category: "Google Certification", isGoogle: true, isFavourite: false },
+    { src: "google_use_ai_responsibly.png", title: "Google - Use AI Responsibly", category: "Google Certification", isGoogle: true, isFavourite: false },
     { src: "kaashiv_infotech.png", title: "Kaashiv Infotech Practical Industrial Training (Artificial Intelligence)", category: "Technical Certification", isVertical: true, isFavourite: false },
     { src: "sports achievement.jpeg", title: "Annual Sports Day Individual Championship Trophies", category: "Extra Curricular", isFavourite: true },
     { src: "1759327043804.jpeg", title: "Project Presentation - Smart Beneficiary Mapping Platform (Technoinnovate 2025)", category: "Technical Certification", isFavourite: false },

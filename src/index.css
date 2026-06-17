@@ -3,8 +3,41 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --color-surface: #f8f9fb;
+        --color-pure-white: #ffffff;
+        --color-border-subtle: #E5E7EB;
+        --color-on-surface: #191c1e;
+        --color-on-surface-variant: #46464b;
+        --color-primary: #05070e;
+        --color-secondary: #3354c7;
+        --color-surface-container-low: #f3f4f6;
+        --color-surface-container: #edeef0;
+        --color-surface-container-high: #e7e8ea;
+        --color-surface-container-highest: #e1e2e4;
+        --color-background: #f8f9fb;
+    }
+
+    .dark {
+        --color-surface: #0a0d14;
+        --color-pure-white: #111622;
+        --color-border-subtle: #1e293b;
+        --color-on-surface: #f3f4f6;
+        --color-on-surface-variant: #9ca3af;
+        --color-primary: #ffffff;
+        --color-secondary: #6366f1;
+        --color-surface-container-low: #151b27;
+        --color-surface-container: #1b2336;
+        --color-surface-container-high: #232d42;
+        --color-surface-container-highest: #2d3a54;
+        --color-background: #0a0d14;
+    }
+
     body {
-        @apply bg-surface text-on-surface font-body-md selection:bg-secondary/20;
+        @apply bg-surface text-on-surface font-body-md transition-colors duration-300;
+    }
+    ::selection {
+        background-color: rgba(99, 102, 241, 0.25);
     }
 }
 
