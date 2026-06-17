@@ -26,6 +26,7 @@ const Certifications = () => {
     { src: "google_ai_for_data_analysis.png", title: "Google - AI for Data Analysis", category: "Google Certification", isGoogle: true, isFavourite: false },
     { src: "google_ai_for_brainstorming_and_planning.png", title: "Google - AI for Brainstorming and Planning", category: "Google Certification", isGoogle: true, isFavourite: false },
     { src: "google_use_ai_responsibly.png", title: "Google - Use AI Responsibly", category: "Google Certification", isGoogle: true, isFavourite: false },
+    { src: "cisco_operating_systems_basics.png", title: "Cisco Networking Academy - Operating Systems Basics", category: "Technical Certification", isCisco: true, isFavourite: true },
     { src: "kaashiv_infotech.png", title: "Kaashiv Infotech Practical Industrial Training (Artificial Intelligence)", category: "Technical Certification", isVertical: true, isFavourite: false },
     { src: "sports achievement.jpeg", title: "Annual Sports Day Individual Championship Trophies", category: "Extra Curricular", isFavourite: true },
     { src: "1759327043804.jpeg", title: "Project Presentation - Smart Beneficiary Mapping Platform (Technoinnovate 2025)", category: "Technical Certification", isFavourite: false },
@@ -57,12 +58,17 @@ const Certifications = () => {
             className={`group relative cursor-pointer overflow-hidden bg-white border rounded-xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card reveal-on-scroll flex flex-col ${
               cert.isGoogle 
                 ? 'border-blue-500/30 shadow-[0_0_15px_rgba(66,133,244,0.06)] hover:shadow-[0_0_22px_rgba(66,133,244,0.18)] hover:border-blue-500/50' 
+                : cert.isCisco
+                ? 'border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.06)] hover:shadow-[0_0_22px_rgba(6,182,212,0.18)] hover:border-cyan-500/50'
                 : 'border-border-subtle'
             }`}
             style={{ transitionDelay: `${(index % 3) * 100}ms` }}
           >
             {cert.isGoogle && (
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853] z-10" />
+            )}
+            {cert.isCisco && (
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00b4e5] via-[#049ca3] to-[#0b5a8c] z-10" />
             )}
             
             {/* Aspect box containing the certificate fully */}
@@ -71,7 +77,7 @@ const Certifications = () => {
                 src={`/certificates/${cert.src}`} 
                 alt={cert.title} 
                 className={`transition-all duration-500 ease-out ${
-                  cert.isGoogle ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
+                  cert.isGoogle || cert.isCisco ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
                 } ${
                   cert.isVertical 
                     ? 'h-[90%] w-auto max-w-full object-contain border border-neutral-200/80 shadow-md bg-white p-1.5 rounded-sm group-hover:scale-[1.04]' 
