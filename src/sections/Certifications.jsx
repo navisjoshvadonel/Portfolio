@@ -80,18 +80,6 @@ const Certifications = () => {
             {/* Certificate Details */}
             <div className="p-5 flex flex-col justify-between flex-grow bg-white">
               <div>
-                {cert.isGoogle ? (
-                  <span className="font-label-sm text-[11px] text-[#4285F4] bg-[#4285F4]/8 px-2 py-0.5 rounded uppercase font-bold tracking-wider inline-flex items-center gap-1.5 mb-2 border border-[#4285F4]/20 shadow-sm">
-                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-6.887 4.114-4.907 0-8.887-3.98-8.887-8.887s3.98-8.887 8.887-8.887c2.466 0 4.588.948 6.182 2.492l3.14-3.14C19.263 1.954 16.038 0 12.24 0 5.48 0 0 5.48 0 12.24s5.48 12.24 12.24 12.24c7.058 0 11.72-4.972 11.72-11.95 0-.806-.07-1.58-.2-2.245H12.24z"/>
-                    </svg>
-                    Google Certified
-                  </span>
-                ) : (
-                  <span className="font-label-sm text-[11px] text-secondary-container bg-secondary/10 px-2 py-0.5 rounded uppercase font-semibold tracking-wider inline-block mb-2">
-                    {cert.category}
-                  </span>
-                )}
                 <h3 className="font-headline-md text-base text-primary group-hover:text-secondary transition-colors duration-200 line-clamp-2">
                   {cert.title}
                 </h3>
@@ -141,9 +129,6 @@ const Certifications = () => {
             className="text-center mt-6 max-w-xl px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="font-label-sm text-label-sm text-secondary-fixed mb-2 uppercase tracking-widest block">
-              {selectedCert.category}
-            </span>
             <h3 className="font-headline-md text-xl md:text-2xl text-pure-white mb-2">
               {selectedCert.title}
             </h3>
