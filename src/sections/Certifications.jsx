@@ -19,6 +19,9 @@ const Certifications = () => {
   }, []);
 
   const certificates = [
+    { src: "google_ai.png", title: "Google AI Professional Certificate", category: "Google Certification", isGoogle: true, isFavourite: true },
+    { src: "google_ai_essentials.png", title: "Google AI Essentials Specialization", category: "Google Certification", isGoogle: true, isFavourite: true },
+    { src: "kaashiv_infotech.png", title: "Kaashiv Infotech Practical Industrial Training (Artificial Intelligence)", category: "Technical Certification", isVertical: true, isFavourite: false },
     { src: "sports achievement.jpeg", title: "State Level Sports Achievement", category: "Extra Curricular", isFavourite: true },
     { src: "1759327043804.jpeg", title: "Technoinnovate 2025 Participation", category: "Technical Certification", isFavourite: false },
     { src: "1766587337051.jpeg", title: "Innovation & Design Thinking", category: "Technical Certification", isFavourite: false },
@@ -47,15 +50,29 @@ const Certifications = () => {
           <div 
             key={index} 
             onClick={() => setSelectedCert(cert)}
-            className="group relative cursor-pointer overflow-hidden bg-white border border-border-subtle rounded-xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card reveal-on-scroll flex flex-col"
+            className={`group relative cursor-pointer overflow-hidden bg-white border rounded-xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card reveal-on-scroll flex flex-col ${
+              cert.isGoogle 
+                ? 'border-blue-500/30 shadow-[0_0_15px_rgba(66,133,244,0.06)] hover:shadow-[0_0_22px_rgba(66,133,244,0.18)] hover:border-blue-500/50' 
+                : 'border-border-subtle'
+            }`}
             style={{ transitionDelay: `${(index % 3) * 100}ms` }}
           >
+            {cert.isGoogle && (
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853] z-10" />
+            )}
+            
             {/* Aspect box containing the certificate fully */}
             <div className="aspect-[1.414/1] w-full bg-surface-container-low overflow-hidden flex items-center justify-center p-4 border-b border-border-subtle">
               <img 
                 src={`/certificates/${cert.src}`} 
                 alt={cert.title} 
-                className="max-w-full max-h-full object-contain transition-transform duration-500 ease-out grayscale group-hover:grayscale-0"
+                className={`transition-all duration-500 ease-out ${
+                  cert.isGoogle ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
+                } ${
+                  cert.isVertical 
+                    ? 'h-[90%] w-auto max-w-full object-contain border border-neutral-200/80 shadow-md bg-white p-1.5 rounded-sm group-hover:scale-[1.04]' 
+                    : 'max-w-full max-h-full object-contain group-hover:scale-[1.03]'
+                }`}
                 onError={(e) => { e.target.src = "https://via.placeholder.com/800x600?text=Certificate"; }}
               />
             </div>
@@ -63,9 +80,18 @@ const Certifications = () => {
             {/* Certificate Details */}
             <div className="p-5 flex flex-col justify-between flex-grow bg-white">
               <div>
-                <span className="font-label-sm text-[11px] text-secondary-container bg-secondary/10 px-2 py-0.5 rounded uppercase font-semibold tracking-wider inline-block mb-2">
-                  {cert.category}
-                </span>
+                {cert.isGoogle ? (
+                  <span className="font-label-sm text-[11px] text-[#4285F4] bg-[#4285F4]/8 px-2 py-0.5 rounded uppercase font-bold tracking-wider inline-flex items-center gap-1.5 mb-2 border border-[#4285F4]/20 shadow-sm">
+                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-6.887 4.114-4.907 0-8.887-3.98-8.887-8.887s3.98-8.887 8.887-8.887c2.466 0 4.588.948 6.182 2.492l3.14-3.14C19.263 1.954 16.038 0 12.24 0 5.48 0 0 5.48 0 12.24s5.48 12.24 12.24 12.24c7.058 0 11.72-4.972 11.72-11.95 0-.806-.07-1.58-.2-2.245H12.24z"/>
+                    </svg>
+                    Google Certified
+                  </span>
+                ) : (
+                  <span className="font-label-sm text-[11px] text-secondary-container bg-secondary/10 px-2 py-0.5 rounded uppercase font-semibold tracking-wider inline-block mb-2">
+                    {cert.category}
+                  </span>
+                )}
                 <h3 className="font-headline-md text-base text-primary group-hover:text-secondary transition-colors duration-200 line-clamp-2">
                   {cert.title}
                 </h3>

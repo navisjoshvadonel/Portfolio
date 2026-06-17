@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-surface border-t border-border-subtle mt-20">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-4">
-          <span className="font-headline-md text-headline-md text-primary font-bold">NAVIS JOSHVA</span>
+          <span className="font-headline-md text-headline-md text-primary font-bold">NJD</span>
           <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">© 2026 Navis Joshva Donel J. All rights reserved.</p>
         </div>
         

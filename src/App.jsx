@@ -34,7 +34,7 @@ function App() {
       <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle transition-colors duration-200">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
           <a href="#" className="font-headline-md text-headline-md font-bold tracking-tight text-primary">
-            NAVIS JOSHVA
+            NJD
           </a>
           
           <div className="hidden md:flex gap-8 items-center">
