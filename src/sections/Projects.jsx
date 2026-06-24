@@ -34,6 +34,14 @@ const Projects = () => {
       tall: false
     },
     {
+      title: "Recommendation System",
+      description: "A modern desktop recommendation engine utilizing TF-IDF and rules-based scoring. Built with Swing and MySQL, it supports multi-domain CSV ingestion, asynchronous processing, and secure database credentials.",
+      link: "https://github.com/navisjoshvadonel/Recommendation_System",
+      category: "JAVA • DATABASE",
+      img: "/recommendation_system.png",
+      tall: true
+    },
+    {
       title: "Tech Hangman",
       description: "A futuristic educational experience designed to master programming basics. Combines engaging problem-solving gameplay with a technical syllabus for rapid learning.",
       link: "https://github.com/navisjoshvadonel/tech_hangman.",
